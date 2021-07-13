@@ -1,3 +1,4 @@
+alpha_vantage
 pandas
 streamlit
 plotly
@@ -9,4 +10,4 @@ numpy
 datetime
 TimeSeries
 plotly.express
-alpha_vantage.timeseries
+
