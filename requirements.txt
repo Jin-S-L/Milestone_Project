@@ -9,3 +9,4 @@ alpha_vantage
 numpy
 datetime
 TimeSeries
+plotly.express
