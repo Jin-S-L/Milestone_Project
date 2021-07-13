@@ -16,7 +16,7 @@ def get_data(symbol,end_date,start_date):
 
 st.write("""
 # TDI Milestone Project
-An interactive chart of stock closing prices using Streamlit and Bokeh.
+An interactive chart of stock closing prices using Streamlit and Plotpy.
 """)
 st.sidebar.header('Select plot parameters:')
 ticker = st.sidebar.text_input("Ticker", 'JBLU')
@@ -30,9 +30,6 @@ df=df.reset_index()
 df=df.sort_values(by='date')
 df=df.rename(columns={'1. open':'Open','2. high':'High','3. low':'Low','4. close':'Close','5. adjusted close':'Adjusted Close'})
 
-#fig = go.Figure(
-#    data=go.Scatter(x=df['date'], y=df['Open'])
-#    )
 fig=px.line(df,x='date',y=df.columns[1:6])
 
 st.plotly_chart(fig, use_container_width=True)
