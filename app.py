@@ -20,14 +20,14 @@ def get_data(symbol,start_date,end_date):
 
 st.write("""
 # TDI Milestone Project
-An interactive chart of stock closing prices using Streamlit and Plotly.
+An interactive chart of stock prices using Streamlit and Plotly.
 """)
 st.sidebar.header('Select plot parameters:')
 ticker = st.sidebar.text_input("Ticker", 'JBLU')
 start_date = st.sidebar.text_input("Start Date","2019-01-01")
 end_date = st.sidebar.text_input("End Date","2020-01-01")
 
-st.header(f"{ticker} : Open, Close, Adjusted Close, High, Low Prices" )
+st.header(f"{ticker} : Open, High, Low, Close, Adjusted Close Prices" )
 
 df=get_data(ticker,start_date,end_date)
 df=df.reset_index()
