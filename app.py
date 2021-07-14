@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import streamlit as st
 import requests
-import simplejson as json
 
 API_key = 'BGNKZDPGRQ7RCZ7L'
 
@@ -15,8 +14,7 @@ def get_data(symbol,start_date,end_date):
     r = requests.get(url)
     data = r.json()
     data=data['Monthly Adjusted Time Series']
-    data=pd.read_json(json.dumps(data))
-    data=data.transpose()
+    data=pd.DataFrame.from_dict(data, orient='index',columns=['1. open', '2. high', '3. low', '4. close', '5. adjusted close'])
     filtered_data = data.loc[end_date:start_date]
     return filtered_data
 
