@@ -36,4 +36,4 @@ df=df.rename(columns={'index':'Date','1. open':'Open','2. high':'High','3. low':
 
 fig=px.line(df,x='Date',y=df.columns[1:6])
 
-#st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
