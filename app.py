@@ -33,6 +33,11 @@ df=get_data(ticker,start_date,end_date)
 df=df.reset_index()
 df=df.sort_values(by='index')
 df=df.rename(columns={'index':'Date','1. open':'Open','2. high':'High','3. low':'Low','4. close':'Close','5. adjusted close':'Adjusted Close'})
+df['Open']=pd.to_numeric(df['Open'])
+df['High']=pd.to_numeric(df['High'])
+df['Low']=pd.to_numeric(df['Low'])
+df['Close']=pd.to_numeric(df['Close'])
+df['Adjusted Close']=pd.to_numeric(df['Adjusted Close'])
 
 fig=px.line(df,x='Date',y=df.columns[1:6])
 
